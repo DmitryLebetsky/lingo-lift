@@ -1,0 +1,6 @@
+.logo {
+    @include font($size: 6rem,
+    $weight: $font-weight-black,
+    $family: $font-secondary,
+    $style: italic)
+}

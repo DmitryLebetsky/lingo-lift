@@ -1,0 +1,26 @@
+@mixin flex($direction: row, $justify-content: center, $align-items: center) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+@mixin font(
+  $size: 2rem,
+  $weight: $font-weight-semibold,
+  $style: normal,
+  $family: $font-primary,
+  $line-height: normal,
+  $spacing: normal
+) {
+  font-weight: $weight;
+  font-size: $size;
+  font-family: $family;
+  font-style: $style;
+  line-height: $line-height;
+  letter-spacing: $spacing;
+}
+
+@mixin transition($properties: all) {
+    transition: $properties $animation-time ease-in-out;
+}

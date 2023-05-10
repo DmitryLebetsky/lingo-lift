@@ -1,38 +1,19 @@
 import './App.scss';
 
 import {
-  createBrowserRouter,
-  RouterProvider,
+  HashRouter as Router
 } from "react-router-dom";
 
-import SignInPage from './components/pages/SignIn';
-import SignUpPage from './components/pages/SignUp';
-import LearnWordsPage from './components/pages/LearnWords';
-import VocabularyPage from './components/pages/Vocabulary';
-
-import { pagesPaths } from './helpers/constants';
-
-const router = createBrowserRouter([
-  {
-    path: pagesPaths.signIn,
-    element: <SignInPage />,
-  },
-  {
-    path: pagesPaths.signUp,
-    element: <SignUpPage />,
-  },
-  {
-    path: pagesPaths.learnWords,
-    element: <LearnWordsPage />,
-  },
-  {
-    path: pagesPaths.vocabulary,
-    element: <VocabularyPage />,
-  },
-]);
+import Header from './components/Header';
+import Main from './components/Main';
 
 const App = () => (
-  <RouterProvider router={router} />
+  <Router>
+   <div className='app'>
+        <Header isUserLogged={false} logoutUser={() => {}}></Header>
+        <Main></Main>
+    </div>
+  </Router>
 );
 
 export default App;
