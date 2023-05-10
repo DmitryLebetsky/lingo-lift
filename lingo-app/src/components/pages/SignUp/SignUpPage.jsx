@@ -20,7 +20,7 @@ class SignUpPage extends Component {
 
     }
     isFormValid = (event) => {
-
+        return true;
     }
     render() {
         const emailValid = true;
@@ -63,7 +63,7 @@ class SignUpPage extends Component {
                 <p className="sign-up-page-additional-info">
                     {text.en.alreadyRegistered} <Link
                         className="sign-up-page-additional-info__sign-in-link"
-                        to="/sign-in">
+                        to={pagesInfo.signIn.path}>
                         {pagesInfo.signIn.title}
                     </Link>
                 </p>
