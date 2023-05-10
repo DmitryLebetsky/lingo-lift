@@ -19,7 +19,18 @@ const pagesInfo = {
 
 const appName = 'LingoLift';
 
+const text = {
+    en: {
+        email: 'Email',
+        password: "Password",
+        firstTimeHere: "First time here?",
+        repeatPassword: "Repeat password",
+        alreadyRegistered: "Already registered?"
+    }
+}
+
 export {
     pagesInfo,
     appName,
+    text,
 }

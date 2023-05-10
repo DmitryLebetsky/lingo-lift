@@ -4,6 +4,10 @@
 @import './scss/abstracts/mixins';
 @import './scss/abstracts/placeholders';
 
+/* Vendors */
+
+@import './scss/vendor/normalize';
+
 /* Base */
 
 @import './scss/base/typography';
@@ -12,7 +16,10 @@
 /* Components */
 
 @import './scss/components/logo';
+@import './scss/components/buttons';
+@import './scss/components/inputs';
 
 /* Layouts */
 
 @import './scss/layouts/header';
+@import './scss/layouts/sign-in-page'
