@@ -10,7 +10,7 @@ import Main from './components/Main';
 const App = () => (
   <Router>
    <div className='app'>
-        <Header isUserLogged={false} logoutUser={() => {}}></Header>
+        <Header isUserLogged={true} logoutUser={() => {}}></Header>
         <Main></Main>
     </div>
   </Router>
