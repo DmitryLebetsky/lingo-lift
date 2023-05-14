@@ -1,0 +1,74 @@
+/* Start page*/
+
+.learn-words {
+    padding-right: 50px;
+    padding-bottom: 90px;
+    padding-left: 50px;
+    @extend %padding;
+}
+
+.lw-startview__wrapper {
+    max-width: 1048px;
+    margin: 0 auto;
+    overflow: hidden;
+    @extend %padding;
+}
+
+.lw-startview__wrapper__title {
+    margin: 0 0 40px 0;
+    @include font(9rem, 900, italic, $font-secondary);
+}
+
+.lw-startview__wrapper__description {
+    margin-bottom: 50px;
+    @extend %subtitle;
+}
+
+.lw-icons-container {
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    @include flex(row, center, center);
+}
+
+.lw-icons-container__icon {
+    display: inline-block;
+    height: 150px;
+    margin: 0 25px;
+    background-position: center;
+    background-size: cover;
+
+    &.pencil {
+        width: 120.71px;
+        height: 130px;
+        background-image: url('../../assets/icons/icon-learn-words-1.svg');
+    }
+
+    &.book {
+        width: 145.95px;
+        background-image: url('../../assets/icons/icon-learn-words-3.svg');
+    }
+
+    &.hat {
+        width: 145.45px;
+        background-image: url('../../assets/icons/icon-learn-words-2.svg');
+    }
+}
+
+.lw-startview__wrapper {
+    @include flex(column, center, center);
+}
+
+.lw-startview-title {
+    margin-bottom: 15px;
+    color: rgba($color: $color-dark, $alpha: 0.4);
+    text-align: center;
+    @include font(3.2rem, 600, normal);
+}
+
+.lw-startview__button-group {
+    @include flex(row, center, center);
+}
+
+.lw-startview__button {
+    margin: 10px;
+}

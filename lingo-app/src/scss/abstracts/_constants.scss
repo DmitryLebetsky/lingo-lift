@@ -1,10 +1,16 @@
 /* Colors */
 
-$color-primary: #F3F3F3;
-$color-primary-dark: #000;
-$color-secondary: #F3F3F3;
+$color-primary: #cab1ff;
+$color-primary-dark: #843fdd;
+$color-secondary: #e0fff8;
 $color-dark: #000;
 $color-light: #fff;
+
+/* Buttons */
+
+$btn-shadow: 0px 4px 6px rgba(130, 89, 217, 0.5),
+  0px 2px 1px rgba(130, 89, 217, 0.5), 0px 1px 0px rgba(0, 0, 0, 0.8);
+$btn-transition: all 0.5s ease;
 
 /* Fonts: families */
 

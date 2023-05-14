@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Input from '../../../basicComponents/Input';
-import Button from '../../../basicComponents/Button';
+import LiquidButton from '../../../basicComponents/LiquidButton';
 
 import { pagesInfo, text } from '../../../helpers/constants';
 
@@ -54,10 +54,11 @@ class SignUpPage extends Component {
                         onChange={this.onChangeRepeatPass}
                         type="password" />
 
-                    <Button
-                        value={pagesInfo.signUp.title}
+                    <LiquidButton
+                        text={pagesInfo.signUp.title}
                         className="sign-up-form__button"
-                        disabled={!this.isFormValid()} />
+                        disabled={!this.isFormValid()}
+                    />
 
                 </form>
                 <p className="sign-up-page-additional-info">

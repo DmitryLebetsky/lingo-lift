@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Input from '../../../basicComponents/Input';
-import Button from '../../../basicComponents/Button';
+import LiquidButton from '../../../basicComponents/LiquidButton';
 
 import { pagesInfo, text } from '../../../helpers/constants';
 
@@ -34,7 +34,10 @@ class SignInPage extends Component {
                         className="sign-in-form__password"
                         onChange={this.onChangePass}
                     />
-                    <Button value={pagesInfo.signIn.title} className="sign-in-form__button" />
+                    <LiquidButton
+                        text={pagesInfo.signIn.title}
+                        className="sign-in-form__button"
+                    />
                 </form>
                 <p className="sign-in-page-additional-info">
                     {text.en.firstTimeHere} <Link

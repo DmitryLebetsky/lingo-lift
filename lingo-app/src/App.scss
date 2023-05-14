@@ -18,9 +18,13 @@
 @import './scss/components/logo';
 @import './scss/components/buttons';
 @import './scss/components/inputs';
+@import './scss/components/liquid_button';
 
 /* Layouts */
 
 @import './scss/layouts/header';
-@import './scss/layouts/sign-in-page';
-@import './scss/layouts/sign-up-page';
+@import './scss/layouts/learn-words';
+
+/* Pages */
+
+@import './scss/pages/auth';
