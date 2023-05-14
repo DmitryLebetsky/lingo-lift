@@ -10,6 +10,7 @@ const pagesInfo = {
     learnWords: {
         title: 'Learn words',
         path: 'learn-words/',
+        description: 'Expand your English vocabulary with built-in word repetition rules.',
     },
     vocabulary: {
         title: 'Vocabulary',
@@ -25,7 +26,8 @@ const text = {
         password: "Password",
         firstTimeHere: "First time here?",
         repeatPassword: "Repeat password",
-        alreadyRegistered: "Already registered?"
+        alreadyRegistered: "Already registered?",
+        start: "Start",
     }
 }
 
