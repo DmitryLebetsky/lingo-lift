@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import StartView from '../StartView';
+import WordCard from '../WordCard';
 
 class LearnWordsPage extends Component {
     handleStartNewLearning = () => {
@@ -8,13 +9,13 @@ class LearnWordsPage extends Component {
     }
 
     render() {
-        const isStartLearning = false;
+        const isStartLearning = true;
         const output = !isStartLearning ? (
             <StartView
                 onStartNewLearning={this.handleStartNewLearning}
             />
         ) : (
-            <div>PLAAAAYING</div>
+            <WordCard />
         );
         return <>{output}</>;
     }
