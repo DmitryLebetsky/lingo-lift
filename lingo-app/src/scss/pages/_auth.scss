@@ -1,5 +1,6 @@
 .sign-in-page,
-.sign-up-page {
+.sign-up-page,
+.vocabulary-page {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
@@ -8,7 +9,8 @@
 }
 
 .sign-in-form,
-.sign-up-form {
+.sign-up-form,
+.vocabulary-page-form {
     z-index: 3;
     margin-bottom: 30px;
     @include flex(column, center, center);
@@ -16,17 +18,19 @@
 
 .sign-in-form__email,
 .sign-up-form__email,
-.sign-up-form__password {
+.vocabulary-page-form__word, {
     margin-bottom: 30px;
 }
 
 .sign-in-form__password,
-.sign-up-form__repeat-password {
+.sign-up-form__repeat-password,
+.vocabulary-page-form__translation {
     margin-bottom: 60px;
 }
 
 .sign-in-form__button,
-.sign-up-form__button {
+.sign-up-form__button,
+.vocabulary-page-form__button {
     width: 100%;
     height: 100px;
     @include font(4rem, 500, normal);

@@ -13,7 +13,7 @@ const pagesInfo = {
         description: 'Expand your English vocabulary with built-in word repetition rules.',
     },
     vocabulary: {
-        title: 'Vocabulary',
+        title: 'Add word',
         path: 'vocabulary/',
     },
 };
@@ -28,6 +28,9 @@ const text = {
         repeatPassword: "Repeat password",
         alreadyRegistered: "Already registered?",
         start: "Start",
+        word: "Word",
+        translation: "Translation",
+        add: "Add",
     }
 }
 
