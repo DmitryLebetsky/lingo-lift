@@ -9,7 +9,7 @@ class LearnWordsPage extends Component {
     }
 
     render() {
-        const isStartLearning = false;
+        const isStartLearning = true;
         const output = !isStartLearning ? (
             <StartView
                 onStartNewLearning={this.handleStartNewLearning}

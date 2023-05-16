@@ -1,76 +1,94 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Input from '../../../basicComponents/Input';
 import LiquidButton from '../../../basicComponents/LiquidButton';
 
 import { pagesInfo, text } from '../../../helpers/constants';
 
-class SignUpPage extends Component {
-    onSubmitForm = (event) => {
+import loginManager from '../../../entities/login_manager';
+import user from '../../../entities/user';
 
-    }
-    onChangeEmail = (event) => {
+import { useDispatch } from 'react-redux';
+import { changeLoggedStatusAction } from '../../../store/loginManagerReducer';
 
-    }
-    onChangePass = (event) => {
+import {auth} from '../../../base';
 
-    }
-    onChangeRepeatPass = (event) => {
+const SignUpPage = () => {
+    const navigate = useNavigate();
 
+    let email = '';
+    let password = '';
+    let repeatedPassword = '';
+    const dispatch = useDispatch();
+    const onSubmitForm = async (event) => {
+        event.preventDefault();
+        if (password === repeatedPassword) {
+            await loginManager.signUp(email, password);
+            dispatch(changeLoggedStatusAction(loginManager.isAuthorized));
+            if (loginManager.isAuthorized) {
+                navigate(pagesInfo.learnWords.path);
+                user.setUser(auth.currentUser.uid, email, password);
+            }
+        }
+        console.log(email, password, repeatedPassword);
     }
-    isFormValid = (event) => {
+    const onChangeEmail = (event) => {
+        email = event.target.value;
+    }
+    const onChangePass = (event) => {
+        password = event.target.value;
+    }
+    const onChangeRepeatPass = (event) => {
+        repeatedPassword = event.target.value;
+    }
+    const isFormValid = (event) => {
         return true;
     }
-    render() {
-        const emailValid = true;
-        const passValid = true;
-        const passRepeatValid = true;
-        /*const {
-          nickValid, emailValid, passValid, passRepeatValid, userId,
-        } = this.state;*/
-        return (
-            <section className="sign-up-page">
-                <h1>{pagesInfo.signUp.title}</h1>
-                <form className="sign-up-form" onSubmit={this.onSubmitForm}>
-                    <Input
-                        required
-                        error={!emailValid}
-                        placeholder={text.en.email}
-                        className="sign-up-form__email"
-                        onChange={this.onChangeEmail} />
-                    <Input
-                        required
-                        error={!passValid}
-                        placeholder={text.en.password}
-                        className="sign-up-form__password"
-                        onChange={this.onChangePass}
-                        type="password" />
-                    <Input
-                        required
-                        error={!passRepeatValid}
-                        placeholder={text.en.repeatPassword}
-                        className="sign-up-form__repeat-password"
-                        onChange={this.onChangeRepeatPass}
-                        type="password" />
+    const emailValid = true;
+    const passValid = true;
+    const passRepeatValid = true;
 
-                    <LiquidButton
-                        text={pagesInfo.signUp.title}
-                        className="sign-up-form__button"
-                        disabled={!this.isFormValid()}
-                    />
+    return (
+        <section className="sign-up-page">
+            <h1>{pagesInfo.signUp.title}</h1>
+            <form className="sign-up-form" onSubmit={onSubmitForm}>
+                <Input
+                    required
+                    error={!emailValid}
+                    placeholder={text.en.email}
+                    className="sign-up-form__email"
+                    onChange={onChangeEmail} />
+                <Input
+                    required
+                    error={!passValid}
+                    placeholder={text.en.password}
+                    className="sign-up-form__password"
+                    onChange={onChangePass}
+                    type="password" />
+                <Input
+                    required
+                    error={!passRepeatValid}
+                    placeholder={text.en.repeatPassword}
+                    className="sign-up-form__repeat-password"
+                    onChange={onChangeRepeatPass}
+                    type="password" />
 
-                </form>
-                <p className="sign-up-page-additional-info">
-                    {text.en.alreadyRegistered} <Link
-                        className="sign-up-page-additional-info__sign-in-link"
-                        to={pagesInfo.signIn.path}>
-                        {pagesInfo.signIn.title}
-                    </Link>
-                </p>
-            </section>
-        );
-    }
+                <LiquidButton
+                    text={pagesInfo.signUp.title}
+                    className="sign-up-form__button"
+                    disabled={!isFormValid()}
+                />
+            </form>
+            <p className="sign-up-page-additional-info">
+                {text.en.alreadyRegistered} <Link
+                    className="sign-up-page-additional-info__sign-in-link"
+                    to={pagesInfo.signIn.path}>
+                    {pagesInfo.signIn.title}
+                </Link>
+            </p>
+        </section>
+    );
 }
 
 export default SignUpPage;

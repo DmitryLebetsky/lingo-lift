@@ -1,20 +1,24 @@
 const pagesInfo = {
     signIn: {
         title: 'Sign in',
-        path: '/'
+        path: '/',
+        loggedNeed: false,
     },
     signUp: {
         title: 'Sign up',
-        path: 'sign-up/',
+        path: '/sign-up/',
+        loggedNeed: false,
     },
     learnWords: {
         title: 'Learn words',
-        path: 'learn-words/',
+        path: '/learn-words/',
         description: 'Expand your English vocabulary with built-in word repetition rules.',
+        loggedNeed: true,
     },
     vocabulary: {
         title: 'Add word',
-        path: 'vocabulary/',
+        path: '/vocabulary/',
+        loggedNeed: true,
     },
 };
 
