@@ -1,5 +1,8 @@
 import { auth } from "../base";
 import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import user from "./user";
+import notificationManager from "./notificationManager";
+import { notifications } from "../helpers/constants";
 
 class LoginManager {
     isAuthorized = false;
@@ -7,6 +10,8 @@ class LoginManager {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
             this.isAuthorized = true;
+            user.setUser(auth.currentUser.uid, email, password);
+            notificationManager.setNotification(notifications.signUp);
         } catch (error) {
             alert(error);
         }
@@ -15,6 +20,8 @@ class LoginManager {
         try {
             await signInWithEmailAndPassword(auth, email, password)
             this.isAuthorized = true;
+            user.setUser(auth.currentUser.uid, email, password);
+            notificationManager.setNotification(notifications.signIn);
         } catch (error) {
             alert(error);
         }
@@ -23,6 +30,8 @@ class LoginManager {
         try {
             await signOut(auth);
             this.isAuthorized = false;
+            user.setUser();
+            notificationManager.setNotification(notifications.logOut);
         } catch (error) {
             alert(error);
         }

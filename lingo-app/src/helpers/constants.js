@@ -38,8 +38,24 @@ const text = {
     }
 }
 
+const notifications = {
+    signIn: {
+        type: "success",
+        message: "Welcome back! We're glad to see you again."
+    },
+    signUp: {
+        type: "success",
+        message: "Congratulations! You've successfully signed up. Welcome to LingoLift!",
+    },
+    logOut: {
+        type: "success",
+        message: "Goodbye! You've been successfully signed out. We hope to see you again soon!",
+    }
+}
+
 export {
     pagesInfo,
     appName,
     text,
+    notifications,
 }

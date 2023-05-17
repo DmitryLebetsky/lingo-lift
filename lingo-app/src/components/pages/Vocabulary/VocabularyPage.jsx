@@ -7,7 +7,7 @@ import {pagesInfo, text} from '../../../helpers/constants';
 
 class VocabularyPage extends Component {
     onSubmitForm = (event) => {
-
+        event.preventDefault();
     }
     onChangeWord = (event) => {
 

@@ -6,21 +6,21 @@ import LiquidButton from '../../../basicComponents/LiquidButton';
 
 import { pagesInfo, text } from '../../../helpers/constants';
 
-import loginManager from '../../../entities/login_manager';
-import user from '../../../entities/user';
+import loginManager from '../../../entities/loginManager';
 
 import { useDispatch } from 'react-redux';
 import { changeLoggedStatusAction } from '../../../store/loginManagerReducer';
-
-import {auth} from '../../../base';
+import { sendNotificationAction } from '../../../store/notificationManagerReducer';
+import notificationManager from '../../../entities/notificationManager';
 
 const SignUpPage = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     let email = '';
     let password = '';
     let repeatedPassword = '';
-    const dispatch = useDispatch();
+    
     const onSubmitForm = async (event) => {
         event.preventDefault();
         if (password === repeatedPassword) {
@@ -28,10 +28,9 @@ const SignUpPage = () => {
             dispatch(changeLoggedStatusAction(loginManager.isAuthorized));
             if (loginManager.isAuthorized) {
                 navigate(pagesInfo.learnWords.path);
-                user.setUser(auth.currentUser.uid, email, password);
+                dispatch(sendNotificationAction(notificationManager.getNotification()));
             }
         }
-        console.log(email, password, repeatedPassword);
     }
     const onChangeEmail = (event) => {
         email = event.target.value;

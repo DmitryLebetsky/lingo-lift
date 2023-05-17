@@ -1,4 +1,4 @@
-import loginManager from "../entities/login_manager";
+import loginManager from "../entities/loginManager";
 
 const defaultState = {
     isLogged: loginManager.isAuthorized,

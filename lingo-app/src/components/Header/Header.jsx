@@ -10,8 +10,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { changeLoggedStatusAction } from '../../store/loginManagerReducer';
 
-import loginManager from '../../entities/login_manager';
-import user from '../../entities/user';
+import { sendNotificationAction } from '../../store/notificationManagerReducer';
+
+import loginManager from '../../entities/loginManager';
+import notificationManager from '../../entities/notificationManager';
 
 const addLinksToHeader = (link, index) => {
     const { title, path } = link;
@@ -38,7 +40,7 @@ const Header = () => {
         dispatch(changeLoggedStatusAction(loginManager.isAuthorized));
         if (!loginManager.isAuthorized) {
             navigate(pagesInfo.signIn.path);
-            user.setUser();
+            dispatch(sendNotificationAction(notificationManager.getNotification()));
         }
     }
 
