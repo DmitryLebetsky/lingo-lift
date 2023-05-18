@@ -1,21 +1,73 @@
-.learn-word-card-wrapper {
-    min-height: 100vh;
-    @extend %padding;
-    @include flex(column, center, center);
+.learn-word-card {
+    position: relative;
+    margin-bottom: 50px;
+    width: 55%;
+    height: 400px;
+    background-color: transparent;
+    perspective: 1000px;
+    transition: all .5s ease-in-out;
+    box-shadow: none;
 }
 
-.learn-word-card {
+.learn-word-card__front,
+.learn-word-card__back {
+    box-shadow: 0px 0px 15px #CDCDCD;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
     background-color: $color-light;
-    width: 60%;
-    padding: 41px 37px;
-    @include flex(column, center, center);
+    @include media-hover {
+        &:hover {
+            box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.6);
+        }
+    }
+
+    transition: all .5s ease-in-out;
+}
+
+.learn-word-card__back {
+    transform: rotateY(180deg);
+    .learn-word-card__title {
+        @include font(8.8rem, $font-weight-extralight);
+        color: $color-dark;
+        opacity: 0.6;
+    }
 }
 
 .learn-word-card__title {
-    margin-top: 76px;
+    cursor: default;
+    text-align: center;
+    margin-top: 110px;
+    transition: all .5s ease-in-out;
     @include font(8.8rem);
 }
 
+.learn-word-card.translation .learn-word-card__front {
+    transform: rotateY(180deg);
+}
+
+.learn-word-card.translation .learn-word-card__back {
+    transform: rotateY(360deg);
+}
+
+.learn-word-card .rotate {
+    cursor: pointer;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    transition: all .5s ease-in-out;
+}
+
+
+/*
 .learn-word-card__translate {
     margin-bottom: 99px;
     @include font(4.1rem, $font-weight-extralight);
@@ -30,4 +82,4 @@
     border: 1px solid $color-dark;
     cursor: pointer;
     @include font(2.8rem);
-}
+}*/

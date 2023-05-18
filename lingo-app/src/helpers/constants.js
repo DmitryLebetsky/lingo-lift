@@ -53,32 +53,36 @@ const notifications = {
     },
     wordAdded: {
         type: "success",
-        message: "Word was added successfuly!",
+        message: "Word added successfully!",
     },
     "auth/invalid-email": {
         type: "error",
-        message: "Invalid email!"
+        message: "Invalid email format. Please enter a valid email address."
     },
     "auth/wrong-password": {
         type: "error",
-        message: "Wrong password!"
+        message: "Incorrect password. Please double-check your password and try again."
     },
     "auth/weak-password": {
         type: "error",
-        message: "Weak password!",
+        message: "Weak password: Please choose a stronger password for your account.",
     },
     "auth/email-already-in-use": {
         type: "error",
-        message: "User with such email already exists!",
+        message: "Email already in use. Please use a different email or sign in with your existing account.",
     },
     "auth/user-not-found": {
         type: "error",
-        message: "User was not found",
+        message: "User not found. Please check your credentials and try again.",
     },
     repeatPasswordCorrectly: {
         type: "error",
-        message: "Repeat password correctly!",
-    }
+        message: "Password mismatch. Please check your password and try again.",
+    },
+    noWordsToStudy: {
+        type: "error",
+        message: "No words to study or repeat today. Feel free to add new words to your collection and expand your vocabulary!",
+    },
 }
 
 export {

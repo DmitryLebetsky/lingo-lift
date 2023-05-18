@@ -72,3 +72,20 @@
 .lw-startview__button {
     margin: 10px;
 }
+
+// Learning
+
+.learn-words-wrapper {
+    min-height: 100vh;
+    @extend %padding;
+    @include flex(column, flex-start, center);
+}
+
+.learn-words__next-button {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    color: black;
+    @include font(2rem);
+    cursor: pointer;
+}

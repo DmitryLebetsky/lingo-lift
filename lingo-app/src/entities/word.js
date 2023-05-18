@@ -3,13 +3,13 @@ class Word {
     word;
     translation;
     lastStudied;
-    nextReview = new Date();
-    constructor(word = "", translation = "") {
+    nextReview;
+    constructor(word = "", translation = "", lastStudied = 0, nextReview = new Date(), wordId = Date.now()) {
         this.word = word;
         this.translation = translation;
-        this.lastStudied = 0;
-        this.nextReview = new Date();
-        this.wordId = new Date();
+        this.lastStudied = lastStudied;
+        this.nextReview = nextReview;
+        this.wordId = wordId;
     }
     getWord() {
         return this;

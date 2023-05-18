@@ -23,7 +23,6 @@ const VocabularyPage = () => {
     const onSubmitForm = async (event) => {
         event.preventDefault();
         const wordToAdd = new Word(word, translation);
-        console.log(wordToAdd);
         dispatch(changeLoadingStatusAction(true));
         await user.addWord(wordToAdd);
         dispatch(changeLoadingStatusAction(false));

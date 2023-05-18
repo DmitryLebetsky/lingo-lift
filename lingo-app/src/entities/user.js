@@ -1,3 +1,6 @@
+import { notifications } from "../helpers/constants";
+import notificationManager from "./notificationManager";
+import studySession from "./studySession";
 import wordsService from "./wordsService";
 
 class User {
@@ -11,6 +14,15 @@ class User {
     }
     async addWord(word) {
         await wordsService.addWord(this.userId, word);
+    }
+    async startLearning() {
+        const userWords = await wordsService.getWords(this.userId);
+        studySession.generateSession(userWords);
+        if (!studySession.wordsForSession.length) {
+            notificationManager.setNotification(notifications.noWordsToStudy);
+        } else {
+            studySession.isInProcess = true;
+        }
     }
 }
 
