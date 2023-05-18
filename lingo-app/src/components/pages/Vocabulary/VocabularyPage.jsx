@@ -10,6 +10,7 @@ import { sendNotificationAction } from '../../../store/notificationManagerReduce
 
 import notificationManager from '../../../entities/notificationManager';
 import user from '../../../entities/user';
+import { changeLoadingStatusAction } from '../../../store/loadingManagerReducer';
 
 
 
@@ -23,7 +24,9 @@ const VocabularyPage = () => {
         event.preventDefault();
         const wordToAdd = new Word(word, translation);
         console.log(wordToAdd);
-        await user.addWords([wordToAdd]);
+        dispatch(changeLoadingStatusAction(true));
+        await user.addWord(wordToAdd);
+        dispatch(changeLoadingStatusAction(false));
         dispatch(sendNotificationAction(notificationManager.getNotification()));
     }
     const onChangeWord = (event) => {
@@ -39,12 +42,14 @@ const VocabularyPage = () => {
             <h1>{pagesInfo.vocabulary.title}</h1>
             <form className="vocabulary-page-form" onSubmit={onSubmitForm}>
                 <Input
+                    required
                     error={!emailValid}
                     placeholder={text.en.word}
                     className="vocabulary-page-form__word"
                     onChange={onChangeWord}
                 />
                 <Input
+                    required
                     placeholder={text.en.translation}
                     className="vocabulary-page-form__translation"
                     onChange={onChangeTranslation}

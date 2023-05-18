@@ -9,8 +9,8 @@ class User {
         this.username = username;
         this.password = password;
     }
-    async addWords(words = []) {
-        await wordsService.addWords(this.userId, words);
+    async addWord(word) {
+        await wordsService.addWord(this.userId, word);
     }
 }
 

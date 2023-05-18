@@ -13,6 +13,7 @@ import notificationManager from '../../../entities/notificationManager';
 
 import { changeLoggedStatusAction } from '../../../store/loginManagerReducer';
 import { sendNotificationAction } from '../../../store/notificationManagerReducer';
+import { changeLoadingStatusAction } from '../../../store/loadingManagerReducer';
 
 const SignInPage = () => {
     const navigate = useNavigate();
@@ -23,12 +24,14 @@ const SignInPage = () => {
 
     const onSubmitForm = async (event) => {
         event.preventDefault();
+        dispatch(changeLoadingStatusAction(true));
         await loginManager.logIn(email, password);
+        dispatch(changeLoadingStatusAction(false));
         dispatch(changeLoggedStatusAction(loginManager.isAuthorized));
         if (loginManager.isAuthorized) {
             navigate(pagesInfo.learnWords.path);
-            dispatch(sendNotificationAction(notificationManager.getNotification()));
         }
+        dispatch(sendNotificationAction(notificationManager.getNotification()));
     }
 
     const onChangeEmail = (event) => {
@@ -45,12 +48,14 @@ const SignInPage = () => {
             <h1>{pagesInfo.signIn.title}</h1>
             <form className="sign-in-form" onSubmit={onSubmitForm}>
                 <Input
+                    required
                     error={!emailValid}
                     placeholder={text.en.email}
                     className="sign-in-form__email"
                     onChange={onChangeEmail}
                 />
                 <Input
+                    required
                     type="password"
                     placeholder={text.en.password}
                     className="sign-in-form__password"

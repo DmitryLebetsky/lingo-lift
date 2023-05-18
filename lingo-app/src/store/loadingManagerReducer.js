@@ -2,7 +2,7 @@ const defaultState = {
     isLoading: false,
 }
 
-const CHANGE_LOADING_STATUS = "CHANGE_LOGGED_STATUS";
+const CHANGE_LOADING_STATUS = "CHANGE_LOADING_STATUS";
 
 const loadingManagerReducer = (state = defaultState, action) => {
     switch (action.type) {

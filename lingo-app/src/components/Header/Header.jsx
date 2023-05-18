@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
+import classNames from 'classnames';
+
 import IconButton from '@material-ui/core/IconButton';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -35,6 +37,13 @@ const Header = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const isLoading = useSelector(state => state.loadingManager.isLoading);
+
+    const headerClasses = classNames({
+        'header': true,
+        'disabled': isLoading,
+    })
+
     const logOut = async () => {
         await loginManager.logOut()
         dispatch(changeLoggedStatusAction(loginManager.isAuthorized));
@@ -65,7 +74,7 @@ const Header = () => {
         Object.values(pagesInfo).filter((page) => !page.loggedNeed).map(addLinksToHeader)
     );
     return (
-        <header className='header'>
+        <header className={headerClasses}>
             <span className='logo'>{appName}</span>
             <nav>
                 <ul className="navigation">

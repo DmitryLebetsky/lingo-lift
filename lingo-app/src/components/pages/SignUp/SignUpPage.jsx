@@ -4,14 +4,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../../basicComponents/Input';
 import LiquidButton from '../../../basicComponents/LiquidButton';
 
-import { pagesInfo, text } from '../../../helpers/constants';
+import { notifications, pagesInfo, text } from '../../../helpers/constants';
 
 import loginManager from '../../../entities/loginManager';
 
 import { useDispatch } from 'react-redux';
+
 import { changeLoggedStatusAction } from '../../../store/loginManagerReducer';
 import { sendNotificationAction } from '../../../store/notificationManagerReducer';
+
 import notificationManager from '../../../entities/notificationManager';
+import { changeLoadingStatusAction } from '../../../store/loadingManagerReducer';
+
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -24,13 +28,18 @@ const SignUpPage = () => {
     const onSubmitForm = async (event) => {
         event.preventDefault();
         if (password === repeatedPassword) {
+            dispatch(changeLoadingStatusAction(true));
             await loginManager.signUp(email, password);
+            dispatch(changeLoadingStatusAction(false));
             dispatch(changeLoggedStatusAction(loginManager.isAuthorized));
             if (loginManager.isAuthorized) {
                 navigate(pagesInfo.learnWords.path);
-                dispatch(sendNotificationAction(notificationManager.getNotification()));
             }
+        } else {
+            const notificationObj = notifications.repeatPasswordCorrectly;
+            notificationManager.setNotification(notificationObj);
         }
+        dispatch(sendNotificationAction(notificationManager.getNotification()));
     }
     const onChangeEmail = (event) => {
         email = event.target.value;

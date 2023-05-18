@@ -17,7 +17,8 @@ const Main = () => {
         if (!loginManager.isAuthorized) {
             navigate(pagesInfo.signIn.path);
           }
-    }, [navigate]) 
+    // eslint-disable-next-line      
+    }, []);
 
     return (
         <main className='main'>

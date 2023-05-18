@@ -49,3 +49,7 @@
         font-weight: $font-weight-black;
     }
 }
+
+.disabled {
+    pointer-events: none;
+}

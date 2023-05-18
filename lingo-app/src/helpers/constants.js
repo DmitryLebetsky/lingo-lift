@@ -54,6 +54,30 @@ const notifications = {
     wordAdded: {
         type: "success",
         message: "Word was added successfuly!",
+    },
+    "auth/invalid-email": {
+        type: "error",
+        message: "Invalid email!"
+    },
+    "auth/wrong-password": {
+        type: "error",
+        message: "Wrong password!"
+    },
+    "auth/weak-password": {
+        type: "error",
+        message: "Weak password!",
+    },
+    "auth/email-already-in-use": {
+        type: "error",
+        message: "User with such email already exists!",
+    },
+    "auth/user-not-found": {
+        type: "error",
+        message: "User was not found",
+    },
+    repeatPasswordCorrectly: {
+        type: "error",
+        message: "Repeat password correctly!",
     }
 }
 

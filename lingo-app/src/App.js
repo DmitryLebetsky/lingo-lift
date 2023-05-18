@@ -14,13 +14,17 @@ import { useSelector } from 'react-redux';
 const App = () => {
   const isLoading = useSelector(state => state.loadingManager.isLoading);
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <Router>
      <div className='app'>
           <Header />
-          <Main />
+          {
+            isLoading ? (
+              <Loader />
+            ) : (
+              <Main />
+            )
+          }
           <Snackbar />
       </div>
     </Router>

@@ -13,7 +13,7 @@ class LoginManager {
             user.setUser(auth.currentUser.uid, email, password);
             notificationManager.setNotification(notifications.signUp);
         } catch (error) {
-            alert(error);
+            notificationManager.setErrorNotification(error);
         }
     }
     async logIn(email, password) {
@@ -23,7 +23,7 @@ class LoginManager {
             user.setUser(auth.currentUser.uid, email, password);
             notificationManager.setNotification(notifications.signIn);
         } catch (error) {
-            alert(error);
+            notificationManager.setErrorNotification(error);
         }
     }
     async logOut() {
@@ -33,7 +33,7 @@ class LoginManager {
             user.setUser();
             notificationManager.setNotification(notifications.logOut);
         } catch (error) {
-            alert(error);
+            notificationManager.setErrorNotification(error);
         }
     }
 }
