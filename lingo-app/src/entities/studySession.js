@@ -46,6 +46,7 @@ class StudySession {
         const indexOfNextWord = this.indexOfCurrentWord + 1;
         if (indexOfNextWord < this.wordsForSession.length) {
             this.currentWord = this.wordsForSession[indexOfNextWord];
+            this.indexOfCurrentWord = indexOfNextWord;
         } else {
             this.currentWord = null;
             this.isInProcess = false;

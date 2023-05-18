@@ -11,17 +11,17 @@
 
 .learn-word-card__front,
 .learn-word-card__back {
-    box-shadow: 0px 0px 15px #CDCDCD;
+    box-shadow: 0px 0px 25px $color-light;
     height: 100%;
     width: 100%;
     position: absolute;
     backface-visibility: hidden;
     background-color: $color-light;
-    @include media-hover {
-        &:hover {
-            box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.6);
-        }
-    }
+    // @include media-hover {
+    //     &:hover {
+    //         box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.6);
+    //     }
+    // }
 
     transition: all .5s ease-in-out;
 }
@@ -30,8 +30,8 @@
     transform: rotateY(180deg);
     .learn-word-card__title {
         @include font(8.8rem, $font-weight-extralight);
-        color: $color-dark;
-        opacity: 0.6;
+        color: rgba(#184851, 0.8);
+        opacity: 0.8;
     }
 }
 
@@ -40,6 +40,7 @@
     text-align: center;
     margin-top: 110px;
     transition: all .5s ease-in-out;
+    color: rgba(#184851, 0.8);
     @include font(8.8rem);
 }
 

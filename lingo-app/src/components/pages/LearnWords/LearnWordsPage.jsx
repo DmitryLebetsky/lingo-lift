@@ -8,6 +8,7 @@ import studySession from '../../../entities/studySession';
 import { changeLearningStatusAction } from '../../../store/learningManagerReducer';
 import { changeCurrentWordAction } from '../../../store/studySessionReducer';
 import { changeLoadingStatusAction } from '../../../store/loadingManagerReducer';
+import LiquidButton from '../../../basicComponents/LiquidButton';
 
 const LearnWordsPage = () => {
     const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const LearnWordsPage = () => {
     ) : (
         <div className='learn-words-wrapper'>
             <WordCard />
-            <button onClick={getNextWord} className='learn-words__next-button'>Next</button>
+            <LiquidButton onClick={getNextWord} text={">"} className='learn-words__next-button'></LiquidButton>
         </div>
     );
     return <>{output}</>;

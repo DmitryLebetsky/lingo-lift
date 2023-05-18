@@ -4,7 +4,8 @@
 
 body {
     position: relative;
-    background-color: $color-secondary;
+    // background-color: $color-secondary;
+    background-image: radial-gradient(circle at center, rgba($color-secondary, 0.65), $color-secondary);
 }
 
 a {

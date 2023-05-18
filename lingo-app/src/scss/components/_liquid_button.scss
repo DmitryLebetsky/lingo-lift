@@ -5,7 +5,7 @@
     padding: 20px 50px;
     overflow: hidden;
     text-transform: uppercase;
-    background: #2d1f38;
+    background: #184851;
     border: 0;
     outline: none;
     cursor: pointer;
@@ -44,13 +44,13 @@
     }
 
     &:before {
-        background: radial-gradient(68.36% 325.38% at 39.62% 31.64%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%), #8259D9;
+        background: $color-secondary;
         border-radius: 40%;
         animation: animate 10s linear infinite;
     }
 
     &:after {
-        background: $color-primary;
+        background: #bbdbd3;
         border-radius: 45%;
         animation: animate 5s linear infinite;
     }
