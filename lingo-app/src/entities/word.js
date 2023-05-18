@@ -1,9 +1,16 @@
 class Word {
-    word_id = 0;
-    word = "";
-    translation = "";
-    lastStudied = 0;
+    word_id;
+    word;
+    translation;
+    lastStudied;
     nextReview = new Date();
+    constructor(word = "", translation = "") {
+        this.word = word;
+        this.translation = translation;
+        this.lastStudied = 0;
+        this.nextReview = new Date();
+        this.wordId = new Date();
+    }
     getWord() {
         return this;
     }
@@ -13,3 +20,5 @@ class Word {
         this.lastStudied = daysToNextRepeat;
     }
 }
+
+export default Word;

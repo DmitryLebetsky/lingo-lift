@@ -50,6 +50,10 @@ const notifications = {
     logOut: {
         type: "success",
         message: "Goodbye! You've been successfully signed out. We hope to see you again soon!",
+    },
+    wordAdded: {
+        type: "success",
+        message: "Word was added successfuly!",
     }
 }
 
