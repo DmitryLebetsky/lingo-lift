@@ -83,6 +83,10 @@ const notifications = {
         type: "error",
         message: "No words to study or repeat today. Feel free to add new words to your collection and expand your vocabulary!",
     },
+    studySessionCompleted: {
+        type: "success",
+        message: "Study session complete! Keep up the good work!",
+    }
 }
 
 export {

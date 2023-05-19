@@ -9,6 +9,8 @@ import { changeLearningStatusAction } from '../../../store/learningManagerReduce
 import { changeCurrentWordAction } from '../../../store/studySessionReducer';
 import { changeLoadingStatusAction } from '../../../store/loadingManagerReducer';
 import LiquidButton from '../../../basicComponents/LiquidButton';
+import { sendNotificationAction } from '../../../store/notificationManagerReducer';
+import notificationManager from '../../../entities/notificationManager';
 
 const LearnWordsPage = () => {
     const dispatch = useDispatch();
@@ -21,6 +23,7 @@ const LearnWordsPage = () => {
         dispatch(changeLoadingStatusAction(false));
         if (!studySession.isInProcess) {
             dispatch(changeLearningStatusAction(false));
+            dispatch(sendNotificationAction(notificationManager.getNotification()));
         } else {
             dispatch(changeCurrentWordAction(studySession.currentWord));
         }

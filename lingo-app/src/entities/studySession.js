@@ -1,3 +1,5 @@
+import { notifications } from "../helpers/constants";
+import notificationManager from "./notificationManager";
 import wordsService from "./wordsService";
 
 class StudySession {
@@ -19,7 +21,7 @@ class StudySession {
             if (word.lastStudied === 0) {
                 this.newWords.push(word);
             } else if (word.nextReview <= new Date()) {
-                this.repeat_words.push(word);
+                this.repeatWords.push(word);
             }
         });
         this.newWords.sort((a, b) => a.nextReview - b.nextReview);
@@ -50,6 +52,7 @@ class StudySession {
         } else {
             this.currentWord = null;
             this.isInProcess = false;
+            notificationManager.setNotification(notifications.studySessionCompleted);
         }
     }
 }

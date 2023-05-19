@@ -1,6 +1,6 @@
 import React from "react";
 
-import infinityGif from '../../assets/images/infinity.gif';
+import infinityGif from '../../assets/images/infinity.svg';
 
 const Loader = () => {
     return (
